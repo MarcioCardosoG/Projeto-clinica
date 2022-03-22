@@ -4,14 +4,13 @@ public class Medico {
 	
 	private String nome;
 	private String cpf;
-	private String especialidade;
+	public String especialidade;
 	
 	public Medico() {
 		
 	}
 
 	public Medico(String nome, String cpf, String especialidade) {
-		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.especialidade = especialidade;

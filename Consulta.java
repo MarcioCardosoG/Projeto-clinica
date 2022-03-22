@@ -82,5 +82,11 @@ public class Consulta {
 		this.dataHora = dataHora;
 	}
 	
+	public String toString() {
+		return "\nNome do médico: " + nomeMed +"\nNome do paciente: " + nomePac +"\nData para a consulta: "+ dataDia +
+				"|" + dataMes + "|" + dataAno +
+				" na hora: " + dataHora +
+				"\n---------------";
+	}
 	
 }
