@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class App {
 
 	public static void main(String[] args) {
@@ -77,24 +78,90 @@ public class App {
 		char perg3 = sc.next().charAt(0);
 
 		if (perg3 == 'S' || perg3 == 's') {
+			
+			
+			List<Consulta> listaCons = new ArrayList<>();
+			ListaDeConsulta listaDeConsulta = new ListaDeConsulta();
 
+			System.out.println("");
+			System.out.print("Quantas consultas deseja marcar?");
+			int lc = sc.nextInt();
+			sc.nextLine();
+			
 			System.out.println("Qual a especialidade desejada?");
 			String perg4 = sc.next();
-			Medico med;
-			System.out.println(listaMed);
+			
 
-			for (int b = 0; b < listaMed.size(); b++) {
-				med = listaMed.get(b);
-				if (perg4 == med.especialidade) {
-					System.out.println("Médico disponível na lista:");
-					System.out.println(med);
+			for (int b = 0; b < listaMed.size(); b++) {				
+				if (perg4.equals(listaMed.get(b).getEspecialidade())) {
+					System.out.println("Médicos disponíveis na lista:");
+					System.out.println(listaMed.get(b).getNome());
 				}
 			}
 
+			
+
+			for (int i = 1; i <= lc; i++) {
+				
+
+				Integer id = i;
+				System.out.println("Cadastre a " + i + "º consulta: ");
+				System.out.print("Nome do médico: ");			
+				String nomeMed = sc.next();
+				System.out.print("Nome do paciente: ");
+				String nomePac = sc.next();
+				System.out.print("Dia para a consulta: ");
+				Integer dataDia = sc.nextInt();
+				sc.nextLine();
+				System.out.print("Mês para a consulta: ");
+				Integer dataMes = sc.nextInt();
+				sc.nextLine();
+				System.out.print("Ano para a consulta: ");
+				Integer dataAno = sc.nextInt();
+				sc.nextLine();
+				System.out.print("Hora para a consulta(24H): ");
+				Integer dataHora = sc.nextInt();
+				sc.nextLine();
+
+				Consulta consulta = new Consulta(id, nomeMed, nomePac, dataDia, dataMes, dataAno, dataHora);
+
+				listaCons.add(consulta);
+				listaDeConsulta.adicionar(consulta);
+				
+				
+				
+			}
+
+		    System.out.println("");
+			System.out.print("Mostrar lista de consultas?(S/N)");
+			char perg5 = sc.next().charAt(0);
+
+			if (perg5 == 'S' || perg5 == 's') {
+
+				System.out.println("");
+				System.out.println("Lista de consultas: ");
+				System.out.println("");
+				for(int i = 0; i<lc; i++) {
+					System.out.println(listaDeConsulta.get(i).getConsultaMarcada());
+					
+				}
+			}
+			
+		    System.out.println("");
+			System.out.print("Mostrar tamanho da lista de consultas?(S/N)");
+			char perg6 = sc.next().charAt(0);
+
+			if (perg6 == 'S' || perg6 == 's') {
+				
+				System.out.println("Tamanho da lista: " + listaDeConsulta.getTamanhoLista());
+				
+			}
+
+
 		}
 
-		ListaDeConsulta listaDeConsulta = new ListaDeConsulta();
-		listaDeConsulta.listraDeConculta();
+
+		
 
 		sc.close();
 

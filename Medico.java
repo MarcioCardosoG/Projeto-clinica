@@ -4,7 +4,7 @@ public class Medico {
 	
 	private String nome;
 	private String cpf;
-	public String especialidade;
+	private String especialidade;
 	
 	public Medico() {
 		

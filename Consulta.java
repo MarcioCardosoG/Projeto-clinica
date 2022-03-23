@@ -83,7 +83,10 @@ public class Consulta {
 	}
 	
 	public String toString() {
-		return "\nNome do médico: " + nomeMed +"\nNome do paciente: " + nomePac +"\nData para a consulta: "+ dataDia +
+		return "\nId: " + idConsulta +
+				"\nNome do médico: " + nomeMed +
+				"\nNome do paciente: " + nomePac +
+				"\nData para a consulta: "+ dataDia +
 				"|" + dataMes + "|" + dataAno +
 				" na hora: " + dataHora +
 				"\n---------------";
