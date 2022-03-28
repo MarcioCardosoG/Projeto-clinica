@@ -2,9 +2,10 @@ package projeto3a;
 
 public class Consulta {
 	
-	private int idConsulta;
+	private Integer idConsulta;
 	private String nomeMed;
 	private String nomePac;
+	private String especialidadeCon;
 	private int dataDia;
 	private int dataMes;
 	private int dataAno;
@@ -13,18 +14,27 @@ public class Consulta {
 	public Consulta() {
 		
 	}
+	
+	
 
-	public Consulta(int idConsulta, String nomeMed, String nomePac, int dataDia, int dataMes, int dataAno,
-			int dataHora) {
+
+
+	public Consulta(Integer idConsulta, String nomeMed, String nomePac, String especialidadeCon, int dataDia,
+			int dataMes, int dataAno, int dataHora) {
 		super();
 		this.idConsulta = idConsulta;
 		this.nomeMed = nomeMed;
 		this.nomePac = nomePac;
+		this.especialidadeCon = especialidadeCon;
 		this.dataDia = dataDia;
 		this.dataMes = dataMes;
 		this.dataAno = dataAno;
 		this.dataHora = dataHora;
 	}
+
+
+
+
 
 	public int getIdConsulta() {
 		return idConsulta;
@@ -48,6 +58,14 @@ public class Consulta {
 
 	public void setNomePac(String nomePac) {
 		this.nomePac = nomePac;
+	}
+	
+	public void setEspecialidadeCon(String especialidadeCon) {
+		this.especialidadeCon = especialidadeCon;
+	}
+
+	public String getEspecialidadeCon() {
+		return especialidadeCon;
 	}
 
 	public int getDataDia() {
@@ -85,7 +103,8 @@ public class Consulta {
 	public String toString() {
 		return "\nId: " + idConsulta +
 				"\nNome do médico: " + nomeMed +
-				"\nNome do paciente: " + nomePac +
+				"\nEspecialidade: " + especialidadeCon
+				+ "\nNome do paciente: " + nomePac +
 				"\nData para a consulta: "+ dataDia +
 				"|" + dataMes + "|" + dataAno +
 				" na hora: " + dataHora +

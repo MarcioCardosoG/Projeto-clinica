@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class App {
 
 	public static void main(String[] args) {
@@ -78,8 +77,7 @@ public class App {
 		char perg3 = sc.next().charAt(0);
 
 		if (perg3 == 'S' || perg3 == 's') {
-			
-			
+
 			List<Consulta> listaCons = new ArrayList<>();
 			ListaDeConsulta listaDeConsulta = new ListaDeConsulta();
 
@@ -87,29 +85,61 @@ public class App {
 			System.out.print("Quantas consultas deseja marcar?");
 			int lc = sc.nextInt();
 			sc.nextLine();
-			
+
 			System.out.println("Qual a especialidade desejada?");
 			String perg4 = sc.next();
-			
 
-			for (int b = 0; b < listaMed.size(); b++) {				
+			for (int b = 0; b < listaMed.size(); b++) {
+				int h = 0;
 				if (perg4.equals(listaMed.get(b).getEspecialidade())) {
 					System.out.println("Médicos disponíveis na lista:");
 					System.out.println(listaMed.get(b).getNome());
+					h++;
+				} else if (h == 0) {
+					System.out.println("Médico indisponível.");
+					System.exit(0);
 				}
+
 			}
 
-			
-
 			for (int i = 1; i <= lc; i++) {
-				
 
 				Integer id = i;
 				System.out.println("Cadastre a " + i + "º consulta: ");
-				System.out.print("Nome do médico: ");			
+				System.out.print("Nome do médico: ");
 				String nomeMed = sc.next();
+
+				for (int b = 0; b < listaMed.size(); b++) {
+					int h = 0;
+					if (nomeMed.equals(listaMed.get(b).getNome())) {
+
+						h++;
+					} else if (h == 0) {
+						System.out.println("Médico não encontrado.");
+						System.out.println("Sistema encerrado!");
+						System.exit(0);
+					}
+
+				}
+
 				System.out.print("Nome do paciente: ");
 				String nomePac = sc.next();
+				
+				for (int b = 0; b < listaPac.size(); b++) {
+					int h = 0;
+					if (nomePac.equals(listaPac.get(b).getNome())) {
+
+						h++;
+					} else if (h == 0) {
+						System.out.println("Paciente não encontrado.");
+						System.out.println("Sistema encerrado!");
+						System.exit(0);
+					}
+
+				}
+				
+				
+				String especCon = perg4;
 				System.out.print("Dia para a consulta: ");
 				Integer dataDia = sc.nextInt();
 				sc.nextLine();
@@ -123,16 +153,14 @@ public class App {
 				Integer dataHora = sc.nextInt();
 				sc.nextLine();
 
-				Consulta consulta = new Consulta(id, nomeMed, nomePac, dataDia, dataMes, dataAno, dataHora);
+				Consulta consulta = new Consulta(id, nomeMed, nomePac, especCon, dataDia, dataMes, dataAno, dataHora);
 
 				listaCons.add(consulta);
 				listaDeConsulta.adicionar(consulta);
-				
-				
-				
+
 			}
 
-		    System.out.println("");
+			System.out.println("");
 			System.out.print("Mostrar lista de consultas?(S/N)");
 			char perg5 = sc.next().charAt(0);
 
@@ -141,27 +169,75 @@ public class App {
 				System.out.println("");
 				System.out.println("Lista de consultas: ");
 				System.out.println("");
-				for(int i = 0; i<lc; i++) {
+				for (int i = 0; i < lc; i++) {
 					System.out.println(listaDeConsulta.get(i).getConsultaMarcada());
-					
+
 				}
 			}
-			
-		    System.out.println("");
+
+			System.out.println("");
 			System.out.print("Mostrar tamanho da lista de consultas?(S/N)");
 			char perg6 = sc.next().charAt(0);
 
 			if (perg6 == 'S' || perg6 == 's') {
-				
+
 				System.out.println("Tamanho da lista: " + listaDeConsulta.getTamanhoLista());
+							
+
+			}
+			
+			System.out.println("");
+			System.out.print("Mostrar lista de consulta de algum paciente?(S/N)");
+			char perg7 = sc.next().charAt(0);
+
+			if (perg7 == 'S' || perg7 == 's') {
+				
+				System.out.print("Digite o nome do paciente: ");
+				String nomePaciente = sc.next();
+				
+				for (int b = 0; b < listaCons.size(); b++) {
+					int h = 0;
+					if (nomePaciente.equals(listaCons.get(b).getNomePac())) {
+						System.out.println("Lista de consulta do paciente: ");
+						System.out.println(listaDeConsulta.get(b).getConsultaMarcada());
+						h++;
+					} else if (h == 0) {
+						System.out.println("Paciente não encontrado.");
+						System.out.println("Sistema encerrado!");
+						System.exit(0);
+					}
+
+				}
 				
 			}
+			
+			System.out.println("");
+			System.out.print("Mostrar lista de consulta de algum médico?(S/N)");
+			char perg8 = sc.next().charAt(0);
 
+			if (perg8 == 'S' || perg8 == 's') {
+				
+				System.out.print("Digite o nome do médico: ");
+				String nomeMedico = sc.next();
+				
+				for (int b = 0; b < listaCons.size(); b++) {
+					int h = 0;
+					if (nomeMedico.equals(listaCons.get(b).getNomeMed())) {
+						System.out.println("Lista de consulta do médico: ");
+						System.out.println(listaDeConsulta.get(b).getConsultaMarcada());
+						h++;
+					} else if (h == 0) {
+						System.out.println("Médico não encontrado.");
+						System.out.println("Sistema encerrado!");
+						System.exit(0);
+					}
+
+				}
+				
+			}
+			
 
 		}
-
-
-		
 
 		sc.close();
 
