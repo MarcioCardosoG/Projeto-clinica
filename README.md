@@ -1,7 +1,6 @@
 # ProjetolllA
 Projeto feito em grupo usando Java.
 Introdução a programação orientado a objetos e estrutura de dados.
-Primeira fase finalizada.
 
 Funções do software:
 Cadastrar pacientes e médicos;
