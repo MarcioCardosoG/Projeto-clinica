@@ -1,7 +1,9 @@
 package projeto3a;
 
+
+
 public class Consulta {
-	
+
 	private Integer idConsulta;
 	private String nomeMed;
 	private String nomePac;
@@ -10,14 +12,10 @@ public class Consulta {
 	private int dataMes;
 	private int dataAno;
 	private int dataHora;
-	
+
 	public Consulta() {
-		
+
 	}
-	
-	
-
-
 
 	public Consulta(Integer idConsulta, String nomeMed, String nomePac, String especialidadeCon, int dataDia,
 			int dataMes, int dataAno, int dataHora) {
@@ -31,10 +29,6 @@ public class Consulta {
 		this.dataAno = dataAno;
 		this.dataHora = dataHora;
 	}
-
-
-
-
 
 	public int getIdConsulta() {
 		return idConsulta;
@@ -59,7 +53,7 @@ public class Consulta {
 	public void setNomePac(String nomePac) {
 		this.nomePac = nomePac;
 	}
-	
+
 	public void setEspecialidadeCon(String especialidadeCon) {
 		this.especialidadeCon = especialidadeCon;
 	}
@@ -99,16 +93,13 @@ public class Consulta {
 	public void setDataHora(int dataHora) {
 		this.dataHora = dataHora;
 	}
-	
+
+	@Override
 	public String toString() {
-		return "\nId: " + idConsulta +
-				"\nNome do médico: " + nomeMed +
-				"\nEspecialidade: " + especialidadeCon
-				+ "\nNome do paciente: " + nomePac +
-				"\nData para a consulta: "+ dataDia +
-				"|" + dataMes + "|" + dataAno +
-				" na hora: " + dataHora +
-				"\n---------------";
+		return "\nId: " + idConsulta + "\nNome do médico: " + nomeMed + "\nEspecialidade: " + especialidadeCon
+				+ "\nNome do paciente: " + nomePac + "\nData para a consulta: " + dataDia + "|" + dataMes + "|"
+				+ dataAno + " na hora: " + dataHora + "\n---------------";
 	}
-	
+
+
 }

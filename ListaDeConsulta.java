@@ -1,11 +1,12 @@
 package projeto3a;
 
-
-public class ListaDeConsulta {
+public class ListaDeConsulta{
+	
 	
 	private Node primeiro;
 	private Node ultimo;
 	private int tamanhoLista;
+
 	
 	public ListaDeConsulta() {
 		this.tamanhoLista = 0;
@@ -47,7 +48,7 @@ public class ListaDeConsulta {
 	}
 
 
-	
+
 	public void adicionar(Consulta novaConsulta) {
 		Node novoNode = new Node(novaConsulta);
 		if(this.primeiro == null && this.ultimo == null ) {
@@ -61,7 +62,7 @@ public class ListaDeConsulta {
 		this.tamanhoLista++;
 	}
 	
-	public Node get(int posicao) {
+	public Node Ordenar(int posicao) {
 		Node atual = this.primeiro;
 		for(int i=0; i<posicao; i++ );
 			if(atual.getProximoNode()!=null) {
@@ -69,6 +70,9 @@ public class ListaDeConsulta {
 			}
 			return atual;
 	}
+
+	
+
 	
 
 }
